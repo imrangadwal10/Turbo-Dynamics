@@ -25,7 +25,7 @@ export default async function Signup(req, res) {
           }
           return res
             .status(200)
-            .send({ message: "lecture created successfully", lecture });
+            .send({ message: "lecture created successfully" });
         }
       } catch (e) {
         return res.status(500).send(e.message);

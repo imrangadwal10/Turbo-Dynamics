@@ -1,21 +1,14 @@
 import React from "react";
-import {
-  Text,
-  Container,
-  Center,
-  Box,
-  Flex,
-  Image,
-  useColorMode,
-  Button,
-  IconButton,
-} from "@chakra-ui/react";
+import { Text, Container, Center, Box, Flex, Image, Button } from "@chakra-ui/react";
 import Link from "next/link";
-import { MdOutlineDarkMode } from "react-icons/md";
-import { BsLightbulb } from "react-icons/bs";
+import { useSelector } from "react-redux";
+import { BiUserCircle } from "react-icons/bi";
 
 const Navbar = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const {
+    data: { isAuthenticated, user },
+  } = useSelector((state) => state.auth);
+
   return (
     <>
       <Container
@@ -39,7 +32,6 @@ const Navbar = () => {
 
         <Box
           w={"75%"}
-          //   border={"1px solid black"}
           h={"5rem"}
           display="flex"
           justifyContent={"space-between"}
@@ -50,7 +42,7 @@ const Navbar = () => {
           <Link href={"../"}>
             <Text>Home</Text>
           </Link>
-          <Link href={"../lectures"}>
+          <Link href={"./lecture/lectures"}>
             <Text>Lectures</Text>
           </Link>
           <Text>Assignments</Text>
@@ -61,16 +53,21 @@ const Navbar = () => {
             <Text>SignUp</Text>
           </Link>
           <Link href={"../user/login"}>
-            <Text>Login</Text>
+            <Text>
+              {isAuthenticated ? (
+                <Box display={"flex"} gap="22px">
+                  <Text display={"flex"} justifyContent={"center"} gap="6px" alignItems={"center"}>
+                    <BiUserCircle />
+                    {user.name}
+                  </Text>
+                  <Text>Logout</Text>
+                </Box>
+              ) : (
+                "Login"
+              )}
+            </Text>
           </Link>
-          <IconButton
-            fontSize="25px"
-            borderRadius={50}
-            onClick={toggleColorMode}
-            icon={
-              colorMode === "light" ? <MdOutlineDarkMode /> : <BsLightbulb />
-            }
-          />
+          <Text>{user.role==="Lecturer" ? <Link href={"../lecture/createlectures"}><Button color={"teal"}>Create Lecture</Button></Link> : null}</Text>
         </Box>
       </Container>
     </>
@@ -78,3 +75,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
