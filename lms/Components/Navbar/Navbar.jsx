@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, Container, Center, Box, Flex, Image } from "@chakra-ui/react";
+import Link from 'next/link';
 
 const Navbar = () => {
   return (
@@ -33,11 +34,12 @@ const Navbar = () => {
           fontSize="1.5rem"
           cursor="pointer"
         >
-          <Text>Lectures</Text>
+          <Link href={"../"}><Text>Home</Text></Link>
+          <Link href={"../lectures"}><Text>Lectures</Text></Link>
           <Text>Assignments</Text>
           <Text>Tickets</Text>
-          <Text>SignUp</Text>
-          <Text>Login</Text>
+          <Link href={"../user/signup"}><Text>SignUp</Text></Link>
+          <Link href={"../user/login"}><Text>Login</Text></Link>
         </Box>
       </Container>
     </>

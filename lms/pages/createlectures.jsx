@@ -2,21 +2,21 @@ import { Box, Button, Input, Select, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import axios from "axios";
 
-const Signup = () => {
+const Lectures = () => {
   const [data, setData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    age: "",
-    class: ""
+    title: "",
+    subject: "",
+    date:"",
+    time: "",
+    class:"",
+    paid:""
   });
-
 
   const postData = () => {
     axios({
       method: "post",
-      url: "../api/user/signup",
-      data:data
+      url: "./api/lecture/createlecture",
+      data: data
     });
   };
 
@@ -35,72 +35,72 @@ const Signup = () => {
       <Text
         textAlign={"center"}
         fontSize={"40px"}
+        textDecoration={"underline"}
         mt={"2rem"}
         color={"teal"}
       >
-        SignUp Page
+        Create Lectuers
       </Text>
       <Box
         boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px;"}
         m={"auto"}
-        h={"25rem"}
-        mt={"6rem"}
+        h={"30rem"}
+        mt={"4rem"}
         w={"55rem"}
       >
-        <Box lineHeight={"50px"} margin={"auto"} pt={"3rem"} w={"35rem"}>
+        <Box lineHeight={"50px"} margin={"auto"} pt={"5rem"} w={"35rem"}>
           <form onSubmit={handleSubmit}>
             <Input
               type="text"
               onChange={handleChange}
-              name="name"
-              placeholder="Enter Your Name"
-              value={data.name}
-              required
-            />
-            <Input
-              type="email"
-              onChange={handleChange}
-              name="email"
-              value={data.email}
-              placeholder="Enter Your email"
-              required
-            />
-            <Input
-              type="password"
-              onChange={handleChange}
-              value={data.password}
-              name="password"
-              placeholder="enter Yoye Password"
+              name="title"
+              placeholder="Enter Title"
+              value={data.title}
               required
             />
             <Input
               type="text"
               onChange={handleChange}
-              name="age"
-              value={data.age}
-              placeholder="enter Your age"
-              max="40"
-              min="18"
+              name="subject"
+              placeholder="Enter Subject"
+              value={data.subject}
               required
             />
-            <Select value={data.class} name="class" onChange={handleChange} >
-              <option>Select class</option>
-              <option value={"class 10"}>class 10</option>
-              <option value={"class 11"}>class 11</option>
-              <option value={"class 12"}> class 12</option>
-
-            </Select>
             <Input
+              type="date"
+              onChange={handleChange}
+              name="date"
+              value={data.date}
+              required
+            />
+            <Input
+              type="time"
+              onChange={handleChange}
+              name="time"
+              value={data.time}
+              required
+            />
+           
+            <Select onChange={handleChange} value={data.class} name="class"> 
+            <option>Select Class</option>
+            <option value={"class 10"}>class 10</option>
+            <option value={"class 11"}>class 11</option>
+            <option value={"class 12"}>class 12</option>
+            </Select>
+            <Select onChange={handleChange} value={data.paid} name="paid"> 
+            <option>Select paid/free</option>
+            <option value={"free"}>Free</option>
+            <option value={"Paid"}>Paid</option>
+            </Select>
+
+            <Input
+            type={"submit"}
               bgColor={"teal"}
               color="white"
               w={"100%"}
               textAlign={"center"}
-              _hover={"none"}
-              type="submit"
-              value="submit"
+              value={"submit"}
             />
-
-
           </form>
         </Box>
       </Box>
@@ -108,4 +108,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Lectures;

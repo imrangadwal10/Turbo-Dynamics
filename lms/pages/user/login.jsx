@@ -3,22 +3,18 @@ import React, { useState } from "react";
 
 const Login = () => {
   const [data, setData] = useState({
-    name: "",
     email: "",
     password: "",
     
     
   });
-  // console.log(data)
+
 
   const postData = () => {
     axios({
       method: "post",
-      url: "./api/lecture/Login",
-      data: {
-        email: email,
-        password: pass,
-      },
+      url: "../api/user/Login",
+      data: data
     });
   };
 
@@ -51,14 +47,6 @@ const Login = () => {
       >
         <Box lineHeight={"50px"} margin={"auto"} pt={"3rem"} w={"35rem"}>
           <form onSubmit={handleSubmit}>
-            <Input
-              type="text"
-              onChange={handleChange}
-              name="name"
-              placeholder="Enter Your Name"
-              value={data.name}
-              required
-            />
             <Input
               type="email"
               onChange={handleChange}
