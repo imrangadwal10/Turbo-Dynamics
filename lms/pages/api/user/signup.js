@@ -10,7 +10,7 @@ export default async function Signup(req, res) {
       case "POST":{
         try{
           const User=await UserModel.create(req.body)
-          res.send(User);
+          res.send({message:"signup successfull",User});
 
         }catch(e){
           res.status(500).send(e.message)
