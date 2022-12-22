@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { TfiWrite } from "react-icons/tfi";
 import { AiOutlineEye } from "react-icons/ai";
 import { BiHelpCircle } from "react-icons/bi";
@@ -24,28 +24,46 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 
+const initState = {
+  category: "",
+  title: "",
+  message: "",
+};
+
 export default function createTicket() {
+  const [formData, setformData] = useState(initState);
+
+  const handleChange = (e) => {
+    setformData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
-    <Container maxW maxH={"max-content"} bg="teal.300">
+    <Container maxW maxH={"max-content"} bg="">
       <Text fontSize={"2xl"} pb="8" pt={"5"} textAlign={"center"}>
         Create Support Ticket
       </Text>
       <Container>
         <Text pb={"2"}>CATEGORY</Text>
-        <Select placeholder="Select option">
-          <option value="option1">Withdrawl</option>
-          <option value="option2">Counselling Support</option>
-          <option value="option3">Missed Evaluation Submission</option>
-          <option value="option4">Leave</option>
-          <option value="option5">MAC</option>
-          <option value="option6">Product Support</option>
-          <option value="option7">Coding Platform</option>
-          <option value="option8">Attendance Query</option>
+        <Select
+          name="category"
+          placeholder="Select option"
+          value={formData.category}
+          onChange={handleChange}
+        >
+          <option>Missed Evaluation Submission</option>
+          <option>Leave</option>
+          <option>MAC</option>
+          <option>Attendance Query</option>
         </Select>
         <Text pt={"10"} pb="2">
           TITLE
         </Text>
-        <Input></Input>
+        <Input
+          type={"text"}
+          name="title"
+          value={formData.title}
+          onChange={handleChange}
+        ></Input>
         <Text pt={"10"} pb="2">
           MESSAGE
         </Text>
@@ -78,7 +96,11 @@ export default function createTicket() {
           </TabList>
           <TabPanels>
             <TabPanel>
-              <Textarea></Textarea>
+              <Textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+              ></Textarea>
             </TabPanel>
             <TabPanel></TabPanel>
             <TabPanel>
@@ -91,7 +113,9 @@ export default function createTicket() {
         </Tabs>
         <Box pb={"10"}>
           <Link href="/ticket">
-            <Button colorScheme="blue">Submit Ticket</Button>
+            <Button colorScheme="blue" onClick={() => console.log(formData)}>
+              Submit Ticket
+            </Button>
           </Link>
         </Box>
       </Container>
