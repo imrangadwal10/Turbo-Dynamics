@@ -1,19 +1,24 @@
-import { Box, Button, Input, Select, Text } from "@chakra-ui/react";
+import { Box,  Input,  Text } from "@chakra-ui/react";
 import React, { useState } from "react";
-import axios from "axios";
 
-const Lectures = () => {
+const Login = () => {
   const [data, setData] = useState({
     name: "",
     email: "",
+    password: "",
+    
+    
   });
-  
+  // console.log(data)
 
   const postData = () => {
     axios({
       method: "post",
-      url: "./api/lecture/createlecture",
-      data: data
+      url: "./api/lecture/Login",
+      data: {
+        email: email,
+        password: pass,
+      },
     });
   };
 
@@ -32,45 +37,57 @@ const Lectures = () => {
       <Text
         textAlign={"center"}
         fontSize={"40px"}
-        textDecoration={"underline"}
         mt={"2rem"}
         color={"teal"}
       >
-        Admission
+        Login Page
       </Text>
       <Box
         boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px;"}
         m={"auto"}
-        h={"30rem"}
-        mt={"4rem"}
-        w={"55rem"}
+        h={"20rem"}
+        mt={"6rem"}
+        w={"40rem"}
       >
-        <Box lineHeight={"50px"} margin={"auto"} pt={"5rem"} w={"35rem"}>
+        <Box lineHeight={"50px"} margin={"auto"} pt={"3rem"} w={"35rem"}>
           <form onSubmit={handleSubmit}>
             <Input
-              type="name"
+              type="text"
               onChange={handleChange}
-              name="title"
-              placeholder="Enter Title"
-              value={data.title}
+              name="name"
+              placeholder="Enter Your Name"
+              value={data.name}
               required
             />
             <Input
               type="email"
               onChange={handleChange}
-              name="subject"
-              placeholder="Enter Subject"
-              value={data.subject}
+              name="email"
+              value={data.email}
+              placeholder="Enter Your email"
               required
             />
             <Input
-            type={"submit"}
+              type="password"
+              onChange={handleChange}
+              value={data.password}
+              name="password"
+              placeholder="enter Yoye Password"
+              required
+            />
+            
+            
+            <Input
               bgColor={"teal"}
               color="white"
               w={"100%"}
               textAlign={"center"}
-              value={"submit"}
+              _hover={"none"}
+              type="submit"
+              value="submit"
             />
+
+
           </form>
         </Box>
       </Box>
@@ -78,4 +95,4 @@ const Lectures = () => {
   );
 };
 
-export default Lectures;
+export default Login;
