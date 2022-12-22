@@ -15,9 +15,14 @@ import {
   Text,
   Textarea,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { BsChatRightDots } from "react-icons/bs";
 export default function Chat() {
+  const [input, setInput] = useState("");
+  // const onChangeHandler = (e) => {
+  //   setInput(e.target.value);
+  //   Socket.emit("input-change", e.target.value);
+  // };
   return (
     <Container>
       <Popover>
@@ -59,7 +64,9 @@ export default function Chat() {
               respond to us in your own time. Click here to get started.
             </Text>
             <Flex alignItems={"end"} gap="2">
-              <Textarea borderRadius={"15"}></Textarea>
+              <Textarea
+                borderRadius={"15"}
+              ></Textarea>
               <Button borderRadius={"15"}>Enter</Button>
             </Flex>
           </PopoverBody>
