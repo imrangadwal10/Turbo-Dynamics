@@ -89,12 +89,16 @@ export default function Ticket() {
                 <Td>
                   <Popover>
                     <PopoverTrigger>
-                      <Button colorScheme="teal">Click to seen your Message</Button>
+                      <Button colorScheme="teal">
+                        Click to seen your Message
+                      </Button>
                     </PopoverTrigger>
                     <PopoverContent>
                       <PopoverArrow />
                       <PopoverCloseButton />
-                      <PopoverHeader background-color={"blue.100"}>Your Message!</PopoverHeader>
+                      <PopoverHeader background-color={"blue.100"}>
+                        Your Message!
+                      </PopoverHeader>
                       <PopoverBody>{message}</PopoverBody>
                     </PopoverContent>
                   </Popover>

@@ -86,7 +86,7 @@ const lectures = () => {
 
   return (
     <div>
-      <Box display={"flex"} gap="10px" width={"850px"} height="200px" ml={260}>
+      <Box display={"flex"} justifyContent={"center"} gap="10px" width={"850px"} height="200px" ml={260}>
         <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-lRxyxWRCsTuDxeWUPgBiJK0lBHFGsBd_Eg&usqp=CAU" />
         <Image src="https://i0.wp.com/bestlearns.in/wp-content/uploads/2020/07/Capture-48.png?fit=627%2C418&ssl=1" />
         <Image
