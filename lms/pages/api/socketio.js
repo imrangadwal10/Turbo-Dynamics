@@ -7,9 +7,8 @@ const ioHandler = (req, res) => {
     const io = new Server(res.socket.server);
 
     io.on("connection", (socket) => {
-      socket.broadcast.emit("a user connected");
-      socket.on("hello", (msg) => {
-        socket.emit("hello", "world!");
+      socket.on("chat", (payload) => {
+        socket.emit("chat", payload);
       });
     });
 
