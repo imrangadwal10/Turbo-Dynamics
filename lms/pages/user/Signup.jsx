@@ -1,8 +1,13 @@
-import { Box, Button, Input, Select, Text } from "@chakra-ui/react";
-import React, { useState } from "react";
-import axios from "axios";
+import { Box, Button, Input, Select, Text,useToast } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+import { useDispatch,useSelector } from "react-redux";
+import { authRegister } from "../../redux/auth/action";
+
 
 const Signup = () => {
+  const dispatch = useDispatch();
+  const { userRegister: { loading, error, message } } = useSelector(state => state.auth);
+  const toast = useToast();
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -11,15 +16,6 @@ const Signup = () => {
     class: ""
   });
 
-
-  const postData = () => {
-    axios({
-      method: "post",
-      url: "../api/user/signup",
-      data:data
-    });
-  };
-
   const handleChange = (e) => {
     const { value, name } = e.target;
     setData({ ...data, [name]: value });
@@ -27,8 +23,31 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-     postData();
+    dispatch(authRegister({ name:data.name,email: data.email, password:data.password,age:data.age,class:data.class}));
   };
+
+  useEffect(() => {
+    if(message === 'signup successfull'){
+     toast({
+      position: 'top',
+       title: message,
+       description: "You have successfully signed up!",
+       status: 'success',
+       duration: 5000,
+       isClosable: true,
+     })
+     }
+     if(error){
+       toast({ 
+        position: 'top',
+         title: message,
+         status: 'error',
+         duration: 5000,
+         isClosable: true,
+       });
+     }
+   }, [message,error])
+ 
 
   return (
     <Box>
