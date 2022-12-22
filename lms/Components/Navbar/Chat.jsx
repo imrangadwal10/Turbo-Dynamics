@@ -1,6 +1,7 @@
 import {
   Button,
   Container,
+  Image,
   Input,
   Popover,
   PopoverArrow,
@@ -9,6 +10,7 @@ import {
   PopoverContent,
   PopoverHeader,
   PopoverTrigger,
+  Text,
 } from "@chakra-ui/react";
 import React from "react";
 import { BsChatRightDots } from "react-icons/bs";
@@ -37,6 +39,11 @@ export default function Chat() {
             Message Us!
           </PopoverHeader>
           <PopoverBody>
+            <Image
+              src="https://www.manageengine.com/products/service-desk/help-desk-software/images/what-is-help-desk-software.png"
+              alt="help"
+            />
+            <Text textAlign={"center"} fontSize="xl" pb={"3"} pt="3">LMS Support Panel</Text>
             <Input></Input>
             <Button>Enter</Button>
           </PopoverBody>
