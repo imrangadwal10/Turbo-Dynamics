@@ -7,20 +7,20 @@ export default async function Login(req, res) {
 
   const { method } = req;
   const { email, password } = req.body;
- 
+
   switch (method) {
     case "POST": {
       try {
         const user = await UserModel.findOne({ email, password });
-     
+
         if (user) {
           const token = jwt.sign(
-            { id: user._id, name: user.name, age: user.age,email: user.email },
+            { id: user._id, name: user.name, age: user.age, email: user.email },
             "SECRET",
             { expiresIn: "1 hour" }
           );
 
-          res.send({ message: "login successfull", token});
+          res.send({ message: "login successfull", token });
         } else {
           res.status(401).send("invalid credintials");
         }

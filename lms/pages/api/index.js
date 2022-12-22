@@ -3,9 +3,9 @@
 
 // export default async function handler(req, res) {
 //    await connectDB()
-   
+
 //     const {method}=req;
-     
+
 //     switch (method) {
 //       case "POST":{
 //         try{
@@ -16,11 +16,9 @@
 //           res.status(500).send(e.message)
 //         }
 //       }
-        
-      
-    
-  
+
 //     }
-  
- 
+
 // }
+
+
