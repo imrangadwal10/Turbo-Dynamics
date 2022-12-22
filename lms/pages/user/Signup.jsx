@@ -8,15 +8,14 @@ const Signup = () => {
     email: "",
     password: "",
     age: "",
-    class: ""
+    class: "",
   });
-
 
   const postData = () => {
     axios({
       method: "post",
       url: "../api/user/signup",
-      data:data
+      data: data,
     });
   };
 
@@ -27,17 +26,12 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-     postData();
+    postData();
   };
 
   return (
     <Box>
-      <Text
-        textAlign={"center"}
-        fontSize={"40px"}
-        mt={"2rem"}
-        color={"teal"}
-      >
+      <Text textAlign={"center"} fontSize={"40px"} mt={"2rem"} color={"teal"}>
         SignUp Page
       </Text>
       <Box
@@ -83,12 +77,11 @@ const Signup = () => {
               min="18"
               required
             />
-            <Select value={data.class} name="class" onChange={handleChange} >
+            <Select value={data.class} name="class" onChange={handleChange}>
               <option>Select class</option>
               <option value={"class 10"}>class 10</option>
               <option value={"class 11"}>class 11</option>
               <option value={"class 12"}> class 12</option>
-
             </Select>
             <Input
               bgColor={"teal"}
@@ -99,8 +92,6 @@ const Signup = () => {
               type="submit"
               value="submit"
             />
-
-
           </form>
         </Box>
       </Box>

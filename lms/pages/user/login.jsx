@@ -1,20 +1,17 @@
-import { Box,  Input,  Text } from "@chakra-ui/react";
+import { Box, Input, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 
 const Login = () => {
   const [data, setData] = useState({
     email: "",
     password: "",
-    
-    
   });
-
 
   const postData = () => {
     axios({
       method: "post",
       url: "../api/user/Login",
-      data: data
+      data: data,
     });
   };
 
@@ -25,17 +22,12 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-     postData();
+    postData();
   };
 
   return (
     <Box>
-      <Text
-        textAlign={"center"}
-        fontSize={"40px"}
-        mt={"2rem"}
-        color={"teal"}
-      >
+      <Text textAlign={"center"} fontSize={"40px"} mt={"2rem"} color={"teal"}>
         Login Page
       </Text>
       <Box
@@ -63,8 +55,7 @@ const Login = () => {
               placeholder="enter Yoye Password"
               required
             />
-            
-            
+
             <Input
               bgColor={"teal"}
               color="white"
@@ -74,8 +65,6 @@ const Login = () => {
               type="submit"
               value="submit"
             />
-
-
           </form>
         </Box>
       </Box>

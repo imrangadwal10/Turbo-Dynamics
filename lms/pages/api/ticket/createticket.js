@@ -1,12 +1,10 @@
 import React, { useState } from "react";
+import axios from "axios";
+import Link from "next/link";
 import { TfiWrite } from "react-icons/tfi";
 import { AiOutlineEye } from "react-icons/ai";
 import { BiHelpCircle } from "react-icons/bi";
 import {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   Input,
   Text,
   Container,
@@ -22,17 +20,22 @@ import {
   Button,
   Box,
 } from "@chakra-ui/react";
-import Link from "next/link";
-
-const initState = {
-  category: "",
-  title: "",
-  message: "",
-};
 
 export default function createTicket() {
-  const [formData, setformData] = useState(initState);
+  const [formData, setformData] = useState({
+    category: "",
+    title: "",
+    message: "",
+  });
 
+  const showData = () => {
+    axios({
+      method: "post",
+      url: "../api/ticket/createticket",
+      data: formData,
+    });
+  };
+  showData();
   const handleChange = (e) => {
     setformData({ ...formData, [e.target.name]: e.target.value });
   };
