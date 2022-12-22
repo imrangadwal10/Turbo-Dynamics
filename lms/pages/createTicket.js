@@ -17,11 +17,16 @@ import {
   TabPanels,
   TabPanel,
   Flex,
+  Textarea,
+  Image,
+  Button,
+  Box,
 } from "@chakra-ui/react";
+import Link from "next/link";
 
 export default function createTicket() {
   return (
-    <div>
+    <Container maxW maxH={"max-content"} bg="teal.300">
       <Text fontSize={"2xl"} pb="8" pt={"5"} textAlign={"center"}>
         Create Support Ticket
       </Text>
@@ -73,15 +78,23 @@ export default function createTicket() {
           </TabList>
           <TabPanels>
             <TabPanel>
-              <Input width="full" h={"200px"}></Input>
+              <Textarea></Textarea>
             </TabPanel>
             <TabPanel></TabPanel>
             <TabPanel>
-              <p>two!</p>
+              <Image
+                src="https://www.manageengine.com/products/service-desk/help-desk-software/images/what-is-help-desk-software.png"
+                alt="help"
+              />
             </TabPanel>
           </TabPanels>
         </Tabs>
+        <Box pb={"10"}>
+          <Link href="/ticket">
+            <Button colorScheme="blue">Submit Ticket</Button>
+          </Link>
+        </Box>
       </Container>
-    </div>
+    </Container>
   );
 }
