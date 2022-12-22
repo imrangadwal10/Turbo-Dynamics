@@ -46,7 +46,9 @@ const Navbar = () => {
             <Text>Lectures</Text>
           </Link>
           <Text>Assignments</Text>
-          <Text>Tickets</Text>
+          <Link href={"../ticket"}>
+            <Text>Tickets</Text>
+          </Link>
           <Link href={"../user/signup"}>
             <Text>SignUp</Text>
           </Link>
@@ -73,3 +75,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

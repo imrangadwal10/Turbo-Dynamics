@@ -1,4 +1,4 @@
-import { Box, Button, Input, Select, Text,useToast } from "@chakra-ui/react";
+import { Box, Input, Select, Text,useToast } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useDispatch,useSelector } from "react-redux";
 import { authRegister } from "../../redux/auth/action";

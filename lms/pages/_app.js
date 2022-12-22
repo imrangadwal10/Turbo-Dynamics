@@ -1,3 +1,4 @@
+
 import { ChakraProvider } from "@chakra-ui/react";
 import Navbar from "../Components/Navbar/Navbar"
 import {store} from "../redux/store"
