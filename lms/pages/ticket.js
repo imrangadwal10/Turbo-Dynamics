@@ -10,11 +10,51 @@ import {
   Th,
   Td,
   TableContainer,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverFooter,
+  PopoverArrow,
+  PopoverCloseButton,
+  PopoverAnchor,
 } from "@chakra-ui/react";
 import Link from "next/link";
-
 import React from "react";
 
+const data = [
+  {
+    id: 1,
+    category: "LMS",
+    title: "Add a button on LMS",
+    message: "Please add a button on LMS ticket page",
+  },
+  {
+    id: 2,
+    category: "Lecture",
+    title: "Add a button on LMS",
+    message: "Please add a button on LMS ticket page",
+  },
+  {
+    id: 3,
+    category: "Leave",
+    title: "Add a button on LMS",
+    message: "Please add a button on LMS ticket page",
+  },
+  {
+    id: 4,
+    category: "MAC",
+    title: "Add a button on LMS",
+    message: "Please add a button on LMS ticket page",
+  },
+  {
+    id: 5,
+    category: "Attendance Query",
+    title: "Add a button on LMS",
+    message: "Please add a button on LMS ticket page",
+  },
+];
 export default function Ticket() {
   return (
     <div>
@@ -42,29 +82,26 @@ export default function Ticket() {
             </Tr>
           </Thead>
           <Tbody>
-            <Tr>
-              <Td>inches</Td>
-              <Td>millimetres (mm)</Td>
-              <Td isNumeric>25.4</Td>
-            </Tr>
-            <Tr>
-              <Td>feet</Td>
-              <Td>centimetres (cm)</Td>
-              <Td isNumeric>30.48</Td>
-            </Tr>
-            <Tr>
-              <Td>yards</Td>
-              <Td>metres (m)</Td>
-              <Td isNumeric>0.91444</Td>
-            </Tr>
+            {data.map(({ id, category, title, message }) => (
+              <Tr key={id}>
+                <Td>{category}</Td>
+                <Td>{title}</Td>
+                <Td>
+                  <Popover>
+                    <PopoverTrigger>
+                      <Button colorScheme="teal">Click to seen your Message</Button>
+                    </PopoverTrigger>
+                    <PopoverContent>
+                      <PopoverArrow />
+                      <PopoverCloseButton />
+                      <PopoverHeader background-color={"blue.100"}>Your Message!</PopoverHeader>
+                      <PopoverBody>{message}</PopoverBody>
+                    </PopoverContent>
+                  </Popover>
+                </Td>
+              </Tr>
+            ))}
           </Tbody>
-          <Tfoot>
-            <Tr>
-              <Th>To convert</Th>
-              <Th>into</Th>
-              <Th isNumeric>multiply by</Th>
-            </Tr>
-          </Tfoot>
         </Table>
       </TableContainer>
     </div>

@@ -1,8 +1,21 @@
 import React from "react";
-import { Text, Container, Center, Box, Flex, Image } from "@chakra-ui/react";
+import {
+  Text,
+  Container,
+  Center,
+  Box,
+  Flex,
+  Image,
+  useColorMode,
+  Button,
+  IconButton,
+} from "@chakra-ui/react";
 import Link from "next/link";
+import { MdOutlineDarkMode } from "react-icons/md";
+import { BsLightbulb } from "react-icons/bs";
 
 const Navbar = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <>
       <Container
@@ -50,6 +63,14 @@ const Navbar = () => {
           <Link href={"../user/login"}>
             <Text>Login</Text>
           </Link>
+          <IconButton
+            fontSize="25px"
+            borderRadius={50}
+            onClick={toggleColorMode}
+            icon={
+              colorMode === "light" ? <MdOutlineDarkMode /> : <BsLightbulb />
+            }
+          />
         </Box>
       </Container>
     </>
