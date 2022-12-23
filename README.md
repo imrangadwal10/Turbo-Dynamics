@@ -27,5 +27,10 @@
   
   <h1>SignUp Page</h1>
   <img src="https://i.postimg.cc/qMLgs8ZW/Screenshot-2022-12-23-133645.jpg" />
-  <h1>Login </h1>
+  <h1>Login Page </h1>
    <img src="https://i.postimg.cc/vZ0zNxDN/Screenshot-2022-12-23-134745.jpg" />
+   <h1>Home Page </h1>
+  <img src="https://i.postimg.cc/qqBYKVFt/Screenshot-2022-12-23-140037.jpg" />
+  
+   <h1>Assignment Page </h1>
+  <img src="https://i.postimg.cc/0yvtKqJ9/Screenshot-2022-12-23-140248.jpg" />
