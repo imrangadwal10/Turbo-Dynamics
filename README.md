@@ -24,3 +24,8 @@
  <img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white" alt="styled-components" />
   <img alt="Heroku" src="https://img.shields.io/badge/-Heroku-430098?style=flat-square&logo=heroku&logoColor=white" height="25px"/>
 </p>
+  
+  <h1>SignUp Page</h1>
+  <img src="https://i.postimg.cc/qMLgs8ZW/Screenshot-2022-12-23-133645.jpg" />
+  <h1>Login </h1>
+   <img src="https://i.postimg.cc/vZ0zNxDN/Screenshot-2022-12-23-134745.jpg" />
