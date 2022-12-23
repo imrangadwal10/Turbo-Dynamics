@@ -20,42 +20,23 @@ import {
   PopoverCloseButton,
   PopoverAnchor,
 } from "@chakra-ui/react";
+import axios from "axios";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const data = [
-  {
-    id: 1,
-    category: "LMS",
-    title: "Add a button on LMS",
-    message: "Please add a button on LMS ticket page",
-  },
-  {
-    id: 2,
-    category: "Lecture",
-    title: "Add a button on LMS",
-    message: "Please add a button on LMS ticket page",
-  },
-  {
-    id: 3,
-    category: "Leave",
-    title: "Add a button on LMS",
-    message: "Please add a button on LMS ticket page",
-  },
-  {
-    id: 4,
-    category: "MAC",
-    title: "Add a button on LMS",
-    message: "Please add a button on LMS ticket page",
-  },
-  {
-    id: 5,
-    category: "Attendance Query",
-    title: "Add a button on LMS",
-    message: "Please add a button on LMS ticket page",
-  },
-];
 export default function Ticket() {
+  const [data, setdata] = useState([]);
+  const getData = () => {
+    axios.get("http://localhost:3000/api/ticket").then((res) => {
+      setdata(res.data);
+      console.log(res);
+    });
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div>
       <Flex
@@ -68,7 +49,7 @@ export default function Ticket() {
         borderRadius="25px"
       >
         <Text fontSize={"2xl"}>Support Tickets</Text>
-        <Link href="api/ticket/createticket">
+        <Link href="/createticket">
           <Button colorScheme="blue">Create Ticket</Button>
         </Link>
       </Flex>
