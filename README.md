@@ -32,7 +32,7 @@
    <h1>Home Page </h1>
   <img src="https://i.postimg.cc/qqBYKVFt/Screenshot-2022-12-23-140037.jpg" />
   
-   <h1>Assignment Page </h1>
+   <h1>Lecture Page </h1>
   <img src="https://i.postimg.cc/0yvtKqJ9/Screenshot-2022-12-23-140248.jpg" />
   
   <h1>Ticket Create </h1>
