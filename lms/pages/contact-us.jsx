@@ -18,6 +18,7 @@ import {
 import React, { useEffect, useState } from "react";
 // import io from "socket.io-client";
 import { BsChatRightDots } from "react-icons/bs";
+import Link from "next/link";
 // const Message = {
 //   author: "",
 //   message: "",
@@ -71,21 +72,23 @@ export default function ContactUs() {
     <Container>
       <Popover>
         <PopoverTrigger>
-          <Button
-            // onClick={() => setLanding(!landing)}
-            colorScheme="teal"
-            gap={"2"}
-            borderRadius="25"
-            variant="outline"
-            border={"2px"}
-            position="fixed"
-            bottom="15px"
-            right="25px"
-          >
-            <BsChatRightDots size={"25"} /> Contact Us
-          </Button>
+          <Link href="/chat">
+            <Button
+              // onClick={() => setLanding(!landing)}
+              colorScheme="teal"
+              gap={"2"}
+              borderRadius="25"
+              variant="outline"
+              border={"2px"}
+              position="fixed"
+              bottom="15px"
+              right="25px"
+            >
+              <BsChatRightDots size={"25"} /> Contact Us
+            </Button>
+          </Link>
         </PopoverTrigger>
-        <PopoverContent>
+        {/* <PopoverContent>
           <PopoverArrow />
           <PopoverCloseButton />
           <PopoverHeader background-color={"blue.100"}>
@@ -113,7 +116,7 @@ export default function ContactUs() {
               <Button borderRadius={"15"}>Enter</Button>
             </Flex>
           </PopoverBody>
-        </PopoverContent>
+        </PopoverContent> */}
       </Popover>
     </Container>
   );
