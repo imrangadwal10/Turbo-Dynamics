@@ -57,10 +57,9 @@ export default function createTicket() {
           value={formData.category}
           onChange={handleChange}
         >
-          <option>Missed Evaluation Submission</option>
-          <option>Leave</option>
-          <option>MAC</option>
-          <option>Attendance Query</option>
+          <option>Courses Issue</option>
+          <option>Payment Issue</option>
+          <option>Platform Issue</option>
         </Select>
         <Text pt={"10"} pb="2">
           TITLE
