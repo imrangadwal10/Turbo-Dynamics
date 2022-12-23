@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Button } from "@chakra-ui/react";
 import io from "socket.io-client";
 const Message = {
   author: "",
@@ -50,17 +51,29 @@ export default function adminchat() {
   };
 
   return (
-    <div className="flex items-center  mx-auto min-h-screen justify-center bg-purple-500">
+    <div className="flex items-center  mx-auto min-h-screen justify-center bg-teal-500">
       <main className="gap-4 flex flex-col items-center justify-center w-full h-full">
         {landing == true ? (
           <>
-            {/* landingpage */}
-            <button onClick={() => setLanding(!landing)}>let's chat</button>
+            <h1 className="text-4xl">Admin Support Panel</h1>
+            <img
+              className="h-64"
+              src="https://img.freepik.com/free-vector/man-engineer-working-computer-server-rack-switchboard-guy-switching-panel-cabinet-with-plugged-ethernet-optical-cables-telecommunications-engineering-concept-flat-illustration_74855-20639.jpg?w=2000"
+              alt="support"
+            />
+            <Button
+              onClick={() => setLanding(!landing)}
+              className="mb-10 mt-10"
+              colorScheme="teal"
+              variant="outline"
+            >
+              Click to Connect With User
+            </Button>
           </>
         ) : !chosenUsername ? (
           <>
             <h3 className="font-bold text-white text-xl">
-              How people should call you?
+              Please Enter Your Admin Username
             </h3>
             <input
               type="text"
@@ -69,26 +82,28 @@ export default function adminchat() {
               className="p-3 rounded-md outline-none"
               onChange={(e) => setUsername(e.target.value)}
             />
-            <button
+            <Button
               onClick={() => {
                 setChosenUsername(username);
               }}
               className="bg-white rounded-md px-4 py-2 text-xl"
+              colorScheme="teal"
+              variant="outline"
             >
-              Go!
-            </button>
+              Connect !
+            </Button>
           </>
         ) : (
           <>
             <p className="font-bold text-white text-xl">
-              Your username: {username}
+              Your Admin Username: {username}
             </p>
             <div className="flex flex-col justify-end bg-white h-[20rem] min-w-[33%] rounded-md shadow-md ">
-              <div className="h-full last:border-b-0 overflow-y-scroll">
+              <div className="h-full last:border-b-0 overflow-y-scroll bg-blue-200">
                 {messages.map((msg, i) => {
                   return (
                     <div
-                      className="w-full py-1 px-2 border-b border-gray-200"
+                      className="w-full py-1 px-2 border-b border-gray-200 bg-blue-500 text-black"
                       key={i}
                     >
                       {msg.author} : {msg.message}
@@ -96,24 +111,24 @@ export default function adminchat() {
                   );
                 })}
               </div>
-              <div className="border-t border-gray-300 w-full flex rounded-bl-md">
+              <div className="border-t border-gray-300 w-full flex rounded-bl-md bg-blue-500 ">
                 <input
                   type="text"
                   placeholder="New message..."
                   value={message}
-                  className="outline-none py-2 px-2 rounded-bl-md flex-1"
+                  className="outline-none py-2 px-2 rounded-bl-md flex-1 bg-blue-500 text-black"
                   onChange={(e) => setMessage(e.target.value)}
                   onKeyUp={handleKeypress}
                 />
-                <div className="border-l border-gray-300 flex justify-center items-center  rounded-br-md group hover:bg-purple-500 transition-all">
-                  <button
-                    className="group-hover:text-white px-3 h-full"
+                <div className="border-l border-gray-300 bg-blue-500 flex justify-center items-center rounded-br-md">
+                  <Button
+                    className="text-black px-3 h-full bg-blue-500"
                     onClick={() => {
                       sendMessage();
                     }}
                   >
                     Send
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>
