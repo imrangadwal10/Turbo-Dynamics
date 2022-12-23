@@ -1,22 +1,23 @@
-import { Box,  Input,  Text,useToast } from "@chakra-ui/react";
-import React, { useState,useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import { Box, Input, Text, useToast } from "@chakra-ui/react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { authLogin } from "../../redux/auth/action";
-import {useRouter} from "next/router"
+import { useRouter } from "next/router";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const { userLogin: { loading, error, message } } = useSelector(state => state.auth);
+  const {
+    userLogin: { loading, error, message },
+  } = useSelector((state) => state.auth);
   const toast = useToast();
-  const router=useRouter()
-   
+  const router = useRouter();
+
   console.log(loading);
 
   const [data, setData] = useState({
     email: "",
-    password: "",   
+    password: "",
   });
-
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -25,45 +26,37 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-     dispatch(authLogin({ email: data.email, password:data.password}));
+    dispatch(authLogin({ email: data.email, password: data.password }));
   };
 
-
   useEffect(() => {
-  if(loading){
-    <Box>Loading....</Box>
-  }
-  else if(message === 'login successfull'){
-      router.replace("/")
-    toast({
-      position: 'top',
-      title: message,
-      description: "You have successfully Logged in!",
-      status: 'success',
-      duration: 5000,
-      isClosable: true,
-    })
-    }
-    if(error){
-      toast({ 
-        position: 'top',
+    if (loading) {
+      <Box>Loading....</Box>;
+    } else if (message === "login successfull") {
+      router.replace("/");
+      toast({
+        position: "top",
         title: message,
-        status: 'error',
+        description: "You have successfully Logged in!",
+        status: "success",
         duration: 5000,
         isClosable: true,
       });
     }
-  }, [message,error])
-
+    if (error) {
+      toast({
+        position: "top",
+        title: message,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+    }
+  }, [message, error]);
 
   return (
     <Box>
-      <Text
-        textAlign={"center"}
-        fontSize={"40px"}
-        mt={"2rem"}
-        color={"teal"}
-      >
+      <Text textAlign={"center"} fontSize={"40px"} mt={"2rem"} color={"teal"}>
         Login Page
       </Text>
       <Box
@@ -91,8 +84,7 @@ const Login = () => {
               placeholder="enter Your Password"
               required
             />
-            
-            
+
             <Input
               bgColor={"teal"}
               color="white"

@@ -5,14 +5,12 @@ export default async function Signup(req, res) {
   await connectDB();
 
   const { method } = req;
-const {id}=req.query;
+  const { id } = req.query;
   switch (method) {
     case "GET": {
       try {
-            const lecture = await LectureModel.find({_id: id});
-          return res
-            .status(200)
-            .send(lecture);
+        const lecture = await LectureModel.find({ _id: id });
+        return res.status(200).send(lecture);
       } catch (e) {
         return res.status(500).send(e.message);
       }

@@ -6,17 +6,17 @@ const Lectures = () => {
   const [data, setData] = useState({
     title: "",
     subject: "",
-    date:"",
+    date: "",
     time: "",
-    class:"",
-    paid:""
+    class: "",
+    paid: "",
   });
 
   const postData = () => {
     axios({
       method: "post",
       url: "./api/lecture/createlecture",
-      data: data
+      data: data,
     });
   };
 
@@ -27,7 +27,7 @@ const Lectures = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-     postData();
+    postData();
   };
 
   return (
@@ -80,21 +80,21 @@ const Lectures = () => {
               value={data.time}
               required
             />
-           
-            <Select onChange={handleChange} value={data.class} name="class"> 
-            <option>Select Class</option>
-            <option value={"class 10"}>class 10</option>
-            <option value={"class 11"}>class 11</option>
-            <option value={"class 12"}>class 12</option>
+
+            <Select onChange={handleChange} value={data.class} name="class">
+              <option>Select Class</option>
+              <option value={"class 10"}>class 10</option>
+              <option value={"class 11"}>class 11</option>
+              <option value={"class 12"}>class 12</option>
             </Select>
-            <Select onChange={handleChange} value={data.paid} name="paid"> 
-            <option>Select paid/free</option>
-            <option value={"free"}>Free</option>
-            <option value={"Paid"}>Paid</option>
+            <Select onChange={handleChange} value={data.paid} name="paid">
+              <option>Select paid/free</option>
+              <option value={"free"}>Free</option>
+              <option value={"Paid"}>Paid</option>
             </Select>
 
             <Input
-            type={"submit"}
+              type={"submit"}
               bgColor={"teal"}
               color="white"
               w={"100%"}

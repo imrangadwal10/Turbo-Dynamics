@@ -20,9 +20,9 @@ export default async function Login(req, res) {
             { expiresIn: "7 days" }
           );
 
-          return res.send({ message: "login successfull", token,user });
+          return res.send({ message: "login successfull", token, user });
         } else {
-          res.status(401).send({message:"invalid credintials"});
+          res.status(401).send({ message: "invalid credintials" });
         }
       } catch (e) {
         res.status(500).send(e.message);

@@ -1,5 +1,13 @@
 import React from "react";
-import { Text, Container, Center, Box, Flex, Image, Button } from "@chakra-ui/react";
+import {
+  Text,
+  Container,
+  Center,
+  Box,
+  Flex,
+  Image,
+  Button,
+} from "@chakra-ui/react";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import { BiUserCircle } from "react-icons/bi";
@@ -56,7 +64,12 @@ const Navbar = () => {
             <Text>
               {isAuthenticated ? (
                 <Box display={"flex"} gap="22px">
-                  <Text display={"flex"} justifyContent={"center"} gap="6px" alignItems={"center"}>
+                  <Text
+                    display={"flex"}
+                    justifyContent={"center"}
+                    gap="6px"
+                    alignItems={"center"}
+                  >
                     <BiUserCircle />
                     {user.name}
                   </Text>
@@ -67,7 +80,13 @@ const Navbar = () => {
               )}
             </Text>
           </Link>
-          <Text>{user.role==="Lecturer" ? <Link href={"../lecture/createlectures"}><Button color={"teal"}>Create Lecture</Button></Link> : null}</Text>
+          <Text>
+            {user.role === "Lecturer" ? (
+              <Link href={"../lecture/createlectures"}>
+                <Button color={"teal"}>Create Lecture</Button>
+              </Link>
+            ) : null}
+          </Text>
         </Box>
       </Container>
     </>
@@ -75,4 +94,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

@@ -9,10 +9,8 @@ export default async function Signup(req, res) {
   switch (method) {
     case "GET": {
       try {
-            const lecture = await LectureModel.find();
-          return res
-            .status(200)
-            .send(lecture);
+        const lecture = await LectureModel.find();
+        return res.status(200).send(lecture);
       } catch (e) {
         return res.status(500).send(e.message);
       }
