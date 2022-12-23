@@ -34,3 +34,6 @@
   
    <h1>Assignment Page </h1>
   <img src="https://i.postimg.cc/0yvtKqJ9/Screenshot-2022-12-23-140248.jpg" />
+  
+  <h1>Ticket Create </h1>
+  <img src="https://i.postimg.cc/J4wgjz6k/Screenshot-2022-12-23-143955.jpg" />
