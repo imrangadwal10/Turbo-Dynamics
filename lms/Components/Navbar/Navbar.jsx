@@ -7,12 +7,17 @@ import {
   Flex,
   Image,
   Button,
+  useColorMode,
+  IconButton,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import { BiUserCircle } from "react-icons/bi";
+import { MdOutlineDarkMode } from "react-icons/md";
+import { BsLightbulb } from "react-icons/bs";
 
 const Navbar = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
   const {
     data: { isAuthenticated, user },
   } = useSelector((state) => state.auth);
@@ -87,6 +92,14 @@ const Navbar = () => {
               </Link>
             ) : null}
           </Text>
+          <IconButton
+            fontSize="25px"
+            borderRadius={50}
+            onClick={toggleColorMode}
+            icon={
+              colorMode === "light" ? <MdOutlineDarkMode /> : <BsLightbulb />
+            }
+          />
         </Box>
       </Container>
     </>
