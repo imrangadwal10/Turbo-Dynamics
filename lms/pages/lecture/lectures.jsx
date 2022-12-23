@@ -133,7 +133,7 @@ const lectures = () => {
         {data.map((item) => {
           return (
             <div>
-              <Link href={`lecture/${item._id}`}>
+              <Link href={`${item._id}`}>
                 <Box id="image_box" mt={10}>
                   {/* <img src={item.image} ></img> */}
                   <Text

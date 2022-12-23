@@ -31,10 +31,10 @@ export const authLogin = (data) => async (dispatch) => {
         const res = await axios.post("../../api/user/login", data);
         dispatch({ type: AUTH_LOGIN_SUCCESS, payload: res.data});
     } catch (error) {
-        dispatch({ type: AUTH_LOGIN_FAILURE, payload: { message: error.response.data.message } });
+       dispatch({ type: AUTH_LOGIN_FAILURE, payload: { message: error.response.data.message } });
     }
 }
 
-export const authLogout = () => (dispatch) => {
-    dispatch({ type: AUTH_LOGOUT });
+export const authLogout = (data) => (dispatch) => {
+    dispatch({ type: AUTH_LOGOUT ,payload:data});
 }

@@ -1,13 +1,69 @@
-import React from "react";
-import { Text, Container, Center, Box, Flex, Image, Button } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+import {
+  Text,
+  Container,
+  Center,
+  Box,
+  Flex,
+  Image,
+  Button,
+  useToast,
+} from "@chakra-ui/react";
 import Link from "next/link";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BiUserCircle } from "react-icons/bi";
+import { authLogout } from "../../redux/auth/action";
+import getCookie from "../../cookies/getcookies";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const toast = useToast();
+  const [Auth, setAuth] = useState(null);
+ 
+ const authentication = getCookie("auth");
+
+useEffect(()=>{
+  if(authentication===undefined){
+    setAuth(false);  
+}else{
+  setAuth(true);
+}
+},[authentication])
+
+  
+
+  const {
+    userLogout: { message },
+  } = useSelector((state) => state.auth);
   const {
     data: { isAuthenticated, user },
   } = useSelector((state) => state.auth);
+
+ 
+  let cookiename = getCookie("name");
+  
+  let name;
+  if (cookiename) {
+    name = cookiename.replaceAll('"', "");
+  }
+
+  const handleLogout = () => {
+    dispatch(authLogout({ message: "Logout successfull" }));
+  };
+  
+  useEffect(()=>{
+   if(message.message === "Logout successfull"){
+    toast({
+      position: "top",
+      title: "Logout successfull",
+      description: "You have Logged out successfully!",
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+    });
+   }
+  },[message.message])
 
   return (
     <>
@@ -50,24 +106,40 @@ const Navbar = () => {
             <Text>Tickets</Text>
           </Link>
           <Link href={"../user/signup"}>
-            <Text>SignUp</Text>
+            {Auth || isAuthenticated ?  null :<Button color={"teal"}>SignUp</Button>  }
           </Link>
-          <Link href={"../user/login"}>
-            <Text>
-              {isAuthenticated ? (
-                <Box display={"flex"} gap="22px">
-                  <Text display={"flex"} justifyContent={"center"} gap="6px" alignItems={"center"}>
-                    <BiUserCircle />
-                    {user.name}
-                  </Text>
-                  <Text>Logout</Text>
-                </Box>
-              ) : (
-                "Login"
-              )}
-            </Text>
-          </Link>
-          <Text>{user.role==="Lecturer" ? <Link href={"../lecture/createlectures"}><Button color={"teal"}>Create Lecture</Button></Link> : null}</Text>
+
+          <Box>
+            {Auth || isAuthenticated ? (
+              <Box display={"flex"} gap="22px">
+                <Text
+                  display={"flex"}
+                  justifyContent={"center"}
+                  gap="6px"
+                  alignItems={"center"}
+                >
+                  <BiUserCircle />
+                  {name}
+                </Text>
+                <Button color={"teal"} onClick={handleLogout}>
+                  Logout
+                </Button>
+              </Box>
+            ) : (
+              <Box>
+                <Link href={"../user/login"}>
+                  <Button color={"teal"}>Login</Button>
+                </Link>
+              </Box>
+            )}
+          </Box>
+          <Text>
+            { (Auth || isAuthenticated) && user.role === "Lecturer" ? (
+              <Link href={"../lecture/createlectures"}>
+                <Button color={"teal"}>Create Lecture</Button>
+              </Link>
+            ) : null}
+          </Text>
         </Box>
       </Container>
     </>
@@ -75,4 +147,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 

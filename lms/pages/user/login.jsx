@@ -9,8 +9,6 @@ const Login = () => {
   const { userLogin: { loading, error, message } } = useSelector(state => state.auth);
   const toast = useToast();
   const router=useRouter()
-   
-  console.log(loading);
 
   const [data, setData] = useState({
     email: "",
@@ -27,7 +25,6 @@ const Login = () => {
     e.preventDefault();
      dispatch(authLogin({ email: data.email, password:data.password}));
   };
-
 
   useEffect(() => {
   if(loading){
