@@ -5,6 +5,10 @@
 
    <h1>Hackathon-project</h1>
    <h3>Turbo-Dynamics Its a Group project We are build this Project In Just 48 hour with 4 team Members<h3/>
+  <p>Imran :- backend,search functionality in lecture page</p>
+  <p>Himanshu singh :- Homepage single lecture page</p>
+  <p>Souvik patra :- Login signup lectures page</p>
+  
    <h2><i>Tech Stack</i></h2>
 
 <p>
