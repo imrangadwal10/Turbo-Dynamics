@@ -47,6 +47,8 @@ useEffect(()=>{
   if (cookiename) {
     name = cookiename.replaceAll('"', "");
   }
+  console.log(name);
+
 
   const handleLogout = () => {
     dispatch(authLogout({ message: "Logout successfull" }));
