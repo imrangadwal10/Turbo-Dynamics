@@ -28,14 +28,18 @@ export default function createTicket() {
     message: "",
   });
 
-  const showData = () => {
+  const postData = () => {
     axios({
       method: "post",
-      url: "../api/ticket/createticket",
+      url: "../api/ticket/ticket",
       data: formData,
     });
   };
-  showData();
+
+  const handleSubmit = () => {
+    postData();
+  };
+
   const handleChange = (e) => {
     setformData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -53,10 +57,9 @@ export default function createTicket() {
           value={formData.category}
           onChange={handleChange}
         >
-          <option>Missed Evaluation Submission</option>
-          <option>Leave</option>
-          <option>MAC</option>
-          <option>Attendance Query</option>
+          <option>Courses Issue</option>
+          <option>Payment Issue</option>
+          <option>Platform Issue</option>
         </Select>
         <Text pt={"10"} pb="2">
           TITLE
@@ -116,7 +119,7 @@ export default function createTicket() {
         </Tabs>
         <Box pb={"10"}>
           <Link href="/ticket">
-            <Button colorScheme="blue" onClick={() => console.log(formData)}>
+            <Button colorScheme="blue" onClick={handleSubmit}>
               Submit Ticket
             </Button>
           </Link>

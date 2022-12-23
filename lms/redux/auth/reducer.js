@@ -12,15 +12,15 @@ import removeCookie from "../../cookies/removecookies";
 
 
 const initialState = {
-    userLogin: { loading: false, error: false, message: "" },
-    userRegister: { loading: false, error: false, message: "" },
-    userLogout: { loading: false, error: false, message: "" },
-    data: {
-        message:"",
-        isAuthenticated: false,
-        token:"" || null,
-        user:{}
-    },
+  userLogin: { loading: false, error: false, message: "" },
+  userRegister: { loading: false, error: false, message: "" },
+  userLogout: { loading: false, error: false, message: "" },
+  data: {
+    message: "",
+    isAuthenticated: false,
+    token: "" || null,
+    user: {},
+  },
 };
 
 export default function authReducer(state = initialState, { type, payload }) {
@@ -28,12 +28,6 @@ export default function authReducer(state = initialState, { type, payload }) {
         case AUTH_LOGIN_REQUEST:
             return { ...state, userLogin: { loading: true, error: false } };
         case AUTH_LOGIN_SUCCESS:
-            removeCookie("token");
-            removeCookie("auth");
-            removeCookie("name");
-            setCookie("token",JSON.stringify(payload.token));
-            setCookie("auth",(true));
-            setCookie("name",(JSON.stringify(payload.user.name)));
             return {
                 ...state,
                 userLogin: { loading: false, error: false, message: payload.message },
@@ -44,7 +38,6 @@ export default function authReducer(state = initialState, { type, payload }) {
                     user:payload.user
                 }
             };
-            
         case AUTH_LOGIN_FAILURE:
             return {
                 ...state,
@@ -66,23 +59,8 @@ export default function authReducer(state = initialState, { type, payload }) {
                 ...state,
                 userRegister: { loading: false, error: true, message: payload.message },
             };
-            case AUTH_LOGOUT:
-                 removeCookie("token");
-                 removeCookie("auth");
-                //setCookie("auth",(false));
-                 removeCookie("name");
-                return {
-                    ...state,
-                    userLogout: { loading: false, error: false, message: payload },
-                    data: {
-                        message:payload.message,
-                        isAuthenticated: false,
-                        token:null,
-                        user:{}
-                    }
-                };
 
-        default:
-            return state;
-    }
+    default:
+      return state;
+  }
 }

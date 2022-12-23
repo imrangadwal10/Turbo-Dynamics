@@ -1,5 +1,6 @@
 import connectDB from "../../../connect/connect";
-import LectureModel from "../../../models/lecture.model";
+import TicketeModel from "../../../models/ticket.model";
+import Ticket from "../../ticket";
 
 export default async function Signup(req, res) {
   await connectDB();
@@ -9,8 +10,8 @@ export default async function Signup(req, res) {
   switch (method) {
     case "GET": {
       try {
-        const lecture = await LectureModel.find();
-        return res.status(200).send(lecture);
+        const ticket = await TicketeModel.find();
+        return res.status(200).send(ticket);
       } catch (e) {
         return res.status(500).send(e.message);
       }

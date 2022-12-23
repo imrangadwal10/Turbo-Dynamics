@@ -1,7 +1,7 @@
 import connectDB from "../../../connect/connect";
-import UserModel from "../../../models/user.model";
+import TicketeModel from "../../../models/ticket.model";
 
-export default async function Signup(req, res) {
+export default async function handler(req, res) {
   await connectDB();
 
   const { method } = req;
@@ -9,8 +9,8 @@ export default async function Signup(req, res) {
   switch (method) {
     case "POST": {
       try {
-        const User = await UserModel.create(req.body);
-        res.send({ message: "signup successfull", User });
+        const User = await TicketeModel.create(req.body);
+        res.send(User);
       } catch (e) {
         res.status(500).send(e.message);
       }
