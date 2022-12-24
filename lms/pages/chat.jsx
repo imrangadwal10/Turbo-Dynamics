@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@chakra-ui/react";
 import io from "socket.io-client";
 let socket;
 
-// var Message = {
-//   author: "",
-//   message: "",
-// };
-export default function Chat() {
+var Message = {
+  author: "",
+  message: "",
+};
+const Chat = () => {
   const [username, setUsername] = useState("");
   const [chosenUsername, setChosenUsername] = useState("");
   const [landing, setLanding] = useState(true);
@@ -137,4 +137,6 @@ export default function Chat() {
       </main>
     </div>
   );
-}
+};
+
+export default Chat;
