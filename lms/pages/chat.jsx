@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@chakra-ui/react";
 import io from "socket.io-client";
 
-// var Message = {
-//   author: "",
-//   message: "",
-// };
+var Message = {
+  author: "",
+  message: "",
+};
 export default function Chat() {
   const [username, setUsername] = useState("");
   const [chosenUsername, setChosenUsername] = useState("");
