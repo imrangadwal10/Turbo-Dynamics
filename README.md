@@ -5,6 +5,11 @@
 
    <h1>Hackathon-project</h1>
    <h3>Turbo-Dynamics Its a Group project We are build this Project In Just 48 hour with 4 team Members<h3/>
+  <p>Imran :- Backend,search functionality in lecture page</p>
+  <p>Himanshu singh :- Homepage, single lecture page</p>
+  <p>Souvik patra :- Login, signup, lectures page</p>
+  <p>shankar :- Ticket page, implemented chat functionality</p>
+  
    <h2><i>Tech Stack</i></h2>
 
 <p>
@@ -18,11 +23,11 @@
     <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white" alt="postman" />
     <img src="https://img.shields.io/badge/Git-f44d27?style=for-the-badge&logo=git&logoColor=white" alt="git" />
     <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="github" />
-    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="reactjs" />
+
     <img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white" alt="redux" />
   <img src="https://img.shields.io/badge/Chakra%20UI-3bc7bd?style=for-the-badge&logo=chakraui&logoColor=white" alt="chakra-ui" />
- <img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white" alt="styled-components" />
-  <img alt="Heroku" src="https://img.shields.io/badge/-Heroku-430098?style=flat-square&logo=heroku&logoColor=white" height="25px"/>
+
+
 </p>
   
   <h1>SignUp Page</h1>
@@ -32,7 +37,7 @@
    <h1>Home Page </h1>
   <img src="https://i.postimg.cc/qqBYKVFt/Screenshot-2022-12-23-140037.jpg" />
   
-   <h1>Assignment Page </h1>
+   <h1>Lecture Page </h1>
   <img src="https://i.postimg.cc/0yvtKqJ9/Screenshot-2022-12-23-140248.jpg" />
   
   <h1>Ticket Create </h1>
