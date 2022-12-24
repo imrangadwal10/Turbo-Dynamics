@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@chakra-ui/react";
 import io from "socket.io-client";
+let socket;
 
 // var Message = {
 //   author: "",
@@ -20,8 +21,7 @@ export default function Chat() {
   const socketInitializer = async () => {
     // We just call it because we don't need anything else out of it
     await fetch("/api/socketio");
-
-    let socket = io();
+    socket = io();
 
     socket.on("newIncomingMessage", (msg) => {
       setMessages((currentMsg) => [
@@ -33,7 +33,6 @@ export default function Chat() {
   };
 
   const sendMessage = async () => {
-    let socket = io();
     socket.emit("createdMessage", { author: chosenUsername, message });
     setMessages((currentMsg) => [
       ...currentMsg,
