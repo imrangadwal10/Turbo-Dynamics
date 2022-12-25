@@ -3,10 +3,10 @@ import { Button } from "@chakra-ui/react";
 import io from "socket.io-client";
 let socket;
 
-var Message = {
-  author: "",
-  message: "",
-};
+// var Message = {
+//   author: "",
+//   message: "",
+// };
 const Chat = () => {
   const [username, setUsername] = useState("");
   const [chosenUsername, setChosenUsername] = useState("");
@@ -20,7 +20,7 @@ const Chat = () => {
 
   const socketInitializer = async () => {
     // We just call it because we don't need anything else out of it
-    await fetch("/api/socketio");
+    await fetch("/api/socket");
     socket = io();
 
     socket.on("newIncomingMessage", (msg) => {
